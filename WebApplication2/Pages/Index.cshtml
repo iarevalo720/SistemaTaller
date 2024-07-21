@@ -1,0 +1,30 @@
+﻿@page
+@using Microsoft.AspNetCore.Identity
+@using WebApplication2.Model
+@model IndexModel
+
+@inject SignInManager<ApplicationUser> SingInManager
+
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+@if(SingInManager.IsSignedIn(User))
+    {
+        if (User.IsInRole("ADMIN"))
+        {
+            <h1 class="display-4">Welcome admin</h1>
+        }else if(User.IsInRole("CLIENT"))
+        {
+            <h1 class="display-4">Welcome client</h1>
+        }else if(User.IsInRole("SELLER"))
+        {
+            <h1 class="display-4">Welcome seller</h1>
+        }
+    }
+    else
+    {
+        <h1 class="display-4">Welcome invitado</h1>
+    }
+</div>
