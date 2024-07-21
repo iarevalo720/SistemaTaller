@@ -14,17 +14,24 @@
     {
         if (User.IsInRole("ADMIN"))
         {
-            <h1 class="display-4">Welcome admin</h1>
-        }else if(User.IsInRole("CLIENT"))
+            <h1 class="display-4">Bienvenido admin</h1>
+            <Partial name="Shared/Index/_IndexAdminPartial" />
+        }
+        else if(User.IsInRole("CLIENTE"))
         {
-            <h1 class="display-4">Welcome client</h1>
-        }else if(User.IsInRole("SELLER"))
+            <h1 class="display-4">Bienvenido cliente</h1>
+        }
+        else if(User.IsInRole("RECEPCIONISTA"))
         {
-            <h1 class="display-4">Welcome seller</h1>
+            <h1 class="display-4">Bienvenido recepcionista</h1>
+        }
+        else if(User.IsInRole("OPERADOR"))
+        {
+            <h1 class="display-4">Bienvenido operador</h1>
         }
     }
     else
     {
-        <h1 class="display-4">Welcome invitado</h1>
+        <h1 class="display-4">Bienvenido invitado</h1>
     }
 </div>
